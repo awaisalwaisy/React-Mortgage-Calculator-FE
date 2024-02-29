@@ -1,4 +1,4 @@
-import { useControl } from "@/hooks";
+import { useControl, useMortgageCalculator } from "@/hooks";
 import { Button, Input } from "@nextui-org/react";
 import { useState } from "react";
 
@@ -11,6 +11,9 @@ const MortgageCalc = () => {
 
   // submit form
   const { handleSubmit } = useControl({ setData });
+
+  // calculate
+  const { monthlyPayment } = useMortgageCalculator({ data });
 
   return (
     <>
@@ -54,7 +57,12 @@ const MortgageCalc = () => {
           </Button>
         </div>
       </form>
-      {JSON.stringify(data, null, 2)}
+
+      {monthlyPayment ? (
+        <div className="flex justify-center mt-8">
+          <h3 className="text-lg">Monthly Payment: {monthlyPayment}$</h3>
+        </div>
+      ) : null}
     </>
   );
 };
