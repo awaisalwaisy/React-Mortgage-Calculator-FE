@@ -1,14 +1,12 @@
-import { HeyDev } from "@/components";
-import { Button } from "@nextui-org/react";
-import { Link } from "react-router-dom";
+import { MortgageCalc } from "@/components";
 
 const Home = () => {
   return (
     <main className="page">
-      <Link to="/about">
-        <Button color="primary">About</Button>
-      </Link>
-      <HeyDev />
+      <h1 className="text-3xl font-semibold mb-12 text-center">
+        Mortgage Calculator
+      </h1>
+      <MortgageCalc />
     </main>
   );
 };
